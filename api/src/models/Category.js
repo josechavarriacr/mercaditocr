@@ -12,32 +12,22 @@ const dto = {
     type: String,
     required: true,
   },
-  // SubCategories: [
-  //   {
-  //     name: {
-  //       type: String,
-  //       required: true,
-  //     }
-  //   }
-  // ]
   SubCategories: [
-   {
-    type: Schema.Types.ObjectId, 
-    ref: 'categories'
-   }
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'subcategories'
+    }
   ]
 };
 class Category {
   initSchema() {
     const schema = new Schema(dto, { timestamps: true });
-    schema.pre(
-      'save',
-      function (next) {
-        console.log(next); 
-        return next();
-      },
+    schema.pre('save', function (next) {
+      console.log(next);
+      return next();
+    },
       function (err) {
-        console.log(err); 
+        console.log(err);
         next(err);
       }
     );
