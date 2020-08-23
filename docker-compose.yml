@@ -8,7 +8,7 @@ services:
     image: mongo:latest
     env_file: .env
     ports:
-      - "27017:27017"
+      - ${MONGO_PORT}:${MONGO_PORT}
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
